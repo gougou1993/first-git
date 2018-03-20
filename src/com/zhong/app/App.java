@@ -14,24 +14,18 @@ public class App {
 		int[] a = {4,3,2,1};
 		
 		App.insertSort(a);
-		
-		
 		//App.selectSort(a);
 		for (int i : a) {
 			System.out.print(i);
 		}
-		
 	}
 	
 	public static void insertSort(int[] a){
 		int len = a.length;
 		int insertNum;
-		
 		for (int i = 1; i < len; i++) {
-			
 			insertNum = a[i];
 			int j = i - 1;
-			
 			while(j>=0 && a[j]>insertNum){
 				
 				a[j+1] = a[j];
@@ -92,11 +86,8 @@ public class App {
 				
 			}
 			
-			
 			a[position] = a[i];//进行交换
-			
 			a[i] = value;
-			
 		}
 	}
 	/***
@@ -155,5 +146,60 @@ public class App {
                 }
             }
         }
+    }
+    /**
+     * 冒泡排序
+     * 
+     * 稳定算法
+     * @param a
+     */
+    public static void bubbleSort(int[] a){
+    	
+    	int len = a.length;
+    	
+    	//外循环控制轮数 len -1
+    	for (int i = 0; i < len - 1; i++) {// 轮数等于 len -1 
+			
+    		for(int j = 0; j<len-i ;j++){// 内循环
+    			
+    			if(a[j]>a[j+1]){// 前面大于后面就交换
+    				
+    				a[j] = a[j] +a[j+1];
+    				
+    				a[j+1] = a[j]-a[j+1];
+    				
+    				a[j] = a[j] - a[j+1];
+    				
+    			}
+    			
+    		}
+		}
+    			
+    }
+    /**
+     * 二分查找算法
+     * @param num
+     * @param key
+     * @return
+     */
+    public static int binarySearch(int[] num,int key){
+    	
+    	int start = 0; //开始下标
+    	int end = num.length -1;//结束下标
+    	
+    	while(start<=end){
+    		
+    		int middle  = (start+end)/2;// >>>1 移位
+    		
+    		if(num[middle]>key){
+    			end = middle -1;
+    		}else if(num[middle]<key){
+    			start = middle +1;
+    		}else{
+    			return middle;
+    		}
+    	}
+    	
+    	return -1;
     }
 }
