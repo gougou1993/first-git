@@ -4,7 +4,7 @@ public class SourceSub1 implements Sourceable {
 
 	@Override
 	public void method() {
-		System.out.println("SourceSub1 method");
+		System.out.println("Sourcesub1 method");
 	}
 
 }
